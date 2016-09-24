@@ -1,7 +1,7 @@
 // Initial setup
 var express 				= require('express');
 var app 						= express(); // create our app w/ express
-var path 						= require('path');
+var path 						= require('path'); // resolve path problems
 var mongoose 				= require('mongoose'); // mongoose for mongodb
 var morgan 					= require('morgan'); // log requests to the console (express4)
 var bodyParser 			= require('body-parser'); // pull information from HTML POST (express4)
