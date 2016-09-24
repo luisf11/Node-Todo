@@ -1,10 +1,13 @@
 // Initial setup
-var express = require('express');
-var app = express(); // create our app w/ express
-var mongoose = require('mongoose'); // mongoose for mongodb
-var morgan = require('morgan'); // log requests to the console (express4)
-var bodyParser = require('body-parser'); // pull information from HTML POST (express4)
-var methodOverride = require('method-override'); // simulate DELETE and PUT (express4)
+var express 				= require('express');
+var app 						= express(); // create our app w/ express
+var path 						= require('path');
+var mongoose 				= require('mongoose'); // mongoose for mongodb
+var morgan 					= require('morgan'); // log requests to the console (express4)
+var bodyParser 			= require('body-parser'); // pull information from HTML POST (express4)
+var methodOverride 	= require('method-override'); // simulate DELETE and PUT (express4)
+var routes 					= require(path.resolve('./app/routes.js')); // define the application routes to be used
+
 
 // connect to mongoDB database on modulus.io
 // TODO change this connection to a local one
@@ -29,8 +32,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json'}));
 // Lets you use HTTP verbs such as PUT or DELETE
 app.use(methodOverride());
 
+app.use('/', routes);
+
 // Start app with node server.js listening on the specified port
-var server = app.listen(8082, function () {
+var server = app.listen(8080, function () {
 
 	var host = server.address().address
 	var port = server.address().port
