@@ -5,7 +5,7 @@ function TodoController($scope, $http) {
 
 	$scope.formData = {};
 
-	// when landing on the page, get all todos and show them
+	// When landing on the page, get all todos and show them
 	$http.get('/api/todos')
 		.success(function(data) {
 
@@ -17,7 +17,7 @@ function TodoController($scope, $http) {
 		});
 
 
-	// when submitting the add form, send the text to the node API
+	// When submitting the add form, send the text to the node API
 	$scope.createTodo = function() {
 
 		$http.post('/api/todos', $scope.formData)
@@ -33,7 +33,7 @@ function TodoController($scope, $http) {
 	};
 
 
-	// delete a todo after checking it
+	// Delete a todo after checking it
 	$scope.deleteTodo = function(id) {
 
 		$http.delete('/api/todos/' + id)
