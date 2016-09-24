@@ -7,11 +7,10 @@ var morgan 					= require('morgan'); // log requests to the console (express4)
 var bodyParser 			= require('body-parser'); // pull information from HTML POST (express4)
 var methodOverride 	= require('method-override'); // simulate DELETE and PUT (express4)
 var routes 					= require(path.resolve('./app/routes.js')); // define the application routes to be used
-
+var env 						= require('dotenv').config(); // loads environment variables from a .env file into process.env
 
 // connect to mongoDB database on modulus.io
-// TODO change this connection to a local one
-// mongoose.connect('...');
+mongoose.connect(`mongodb://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/${env.DB_DATABASE}`);
 
 
  // set the static files location /public for use
