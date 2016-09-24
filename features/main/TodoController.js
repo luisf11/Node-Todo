@@ -33,7 +33,7 @@ function TodoController($scope, $http) {
 	};
 
 
-	// Delete a todo after checking it
+	// delete a todo after checking it
 	$scope.deleteTodo = function(id) {
 
 		$http.delete('/api/todos/' + id)
