@@ -1,13 +1,13 @@
 // Initial setup
 var express 				= require('express');
-var app 						= express(); // create our app w/ express
-var path 						= require('path'); // resolve path problems
+var app 				= express(); // create our app w/ express
+var path 				= require('path'); // resolve path problems
 var mongoose 				= require('mongoose'); // mongoose for mongodb
-var morgan 					= require('morgan'); // log requests to the console (express4)
-var bodyParser 			= require('body-parser'); // pull information from HTML POST (express4)
-var methodOverride 	= require('method-override'); // simulate DELETE and PUT (express4)
-var routes 					= require(path.resolve('./app/routes.js')); // define the application routes to be used
-var env 						= require('dotenv').config(); // loads environment variables from a .env file into process.env
+var morgan 				= require('morgan'); // log requests to the console (express4)
+var bodyParser 				= require('body-parser'); // pull information from HTML POST (express4)
+var methodOverride 			= require('method-override'); // simulate DELETE and PUT (express4)
+var routes 				= require(path.resolve('./app/routes.js')); // define the application routes to be used
+var env 				= require('dotenv').config(); // loads environment variables from a .env file into process.env
 
 // connect to mongoDB database on modulus.io
 mongoose.connect(`mongodb://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/${env.DB_DATABASE}`);
