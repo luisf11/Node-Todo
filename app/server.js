@@ -1,25 +1,24 @@
 // Initial setup
-var express 				= require('express');
+var express 			= require('express');
 var app 				= express(); // create our app w/ express
 var path 				= require('path'); // resolve path problems
-var mongoose 				= require('mongoose'); // mongoose for mongodb
+var mongoose 			= require('mongoose'); // mongoose for mongodb
 var morgan 				= require('morgan'); // log requests to the console (express4)
-var bodyParser 				= require('body-parser'); // pull information from HTML POST (express4)
-var methodOverride 			= require('method-override'); // simulate DELETE and PUT (express4)
+var bodyParser 			= require('body-parser'); // pull information from HTML POST (express4)
+var methodOverride 		= require('method-override'); // simulate DELETE and PUT (express4)
 var routes 				= require(path.resolve('./app/routes.js')); // define the application routes to be used
 var env 				= require('dotenv').config(); // loads environment variables from a .env file into process.env
 
 // connect to mongoDB database on modulus.io
 mongoose.connect(`mongodb://${env.DB_USERNAME}:${env.DB_PASSWORD}@${env.DB_HOST}:${env.DB_PORT}/${env.DB_DATABASE}`);
 
-
- // set the static files location /public for use
-app.use(express.static(__dirname + '/public'));
+// set the static files location public for use
+app.use(express.static('public'));
 
 // log every request to the console
 app.use(morgan('dev'));
 
- // parse application/x-www-form-urlencoded
+// parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ 'extended': 'true'}));
 
 // parse application/json
