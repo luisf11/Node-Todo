@@ -25,7 +25,9 @@ Description: Todo application implementing the MEAN stack (MongoDB, Express JS, 
   
 3. Set enviroment
 
-	
+	1. Change the on variables from a .env file into process.env
+	2. Start mongo DB
+	3. Ready to get fun!!
 
 4. Start the project
 
@@ -33,7 +35,9 @@ Description: Todo application implementing the MEAN stack (MongoDB, Express JS, 
 
 5. Open the project 
 
-On the port you choose to configure on the env Example:
+On the port you choose to configure on the process.env.
+
+Example:
 
 	[http://localhost:8080/](http://localhost:8080/)
 
